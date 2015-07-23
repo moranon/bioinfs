@@ -1,0 +1,19 @@
+def complement(s):
+    #returns complementary sequence
+    basecomplement = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
+    letters = list(s)
+    letters = [basecomplement[base] for base in letters]
+    return ''.join(letters)
+
+def reverse(s):
+    #reverse sequence
+    txt = []
+    for i in range(len(s)-1, -1, -1):
+        txt.append(s[i])
+    return ''.join(txt)
+
+def reversecomplement(s):
+    #returns reverse complementary sequence
+    s = reverse(s)
+    s = complement(s)
+    return s
