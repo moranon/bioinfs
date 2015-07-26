@@ -4,12 +4,13 @@ import string
 import sys
 import re
 
-fileentered = True while fileentered == True:
+fileentered = True
+while fileentered == True:
         filename = raw_input('Please enter a file to check: ')
         if len(filename) >= 1:
             try:
                     seqlist = open(filename, 'r').readlines()
-                    sequence = .join(seqlist)
+                    sequence = ''.join(seqlist)
                     sequence = sequence.replace('\n', )
                     totalA = sequence.count('A')
                     totalC = sequence.count('C')
@@ -23,16 +24,16 @@ fileentered = True while fileentered == True:
                     output.write('C = ' + str(totalC) + '\n')
                     output.write('G = ' + str(totalG) + '\n')
                     output.write('T = ' + str(totalT) + '\n')
-            if len(extra) > 0:
-                output.write('Also were found ' + str(len(extra)) + ' errors\n')
-                for i in extra:
-                    output.write(i + ' ')
-                else:
-                    output.write('No error found')
-                    output.close()
+                    if len(extra) > 0:
+                        output.write('Also were found ' + str(len(extra)) + ' errors\n')
+                        for i in extra:
+                            output.write(i + ' ')
+                    else:
+                        output.write('No error found')
+                        output.close()
                     print 'Result file saved on ' + filename + '.count'
-                except:
+            except:
                     print 'File not found. Please try again.'
-                else:
-                    fileentered = False
-                    sys.exit()
+        else:
+                fileentered = False
+                sys.exit()
